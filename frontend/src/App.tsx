@@ -9,6 +9,7 @@ import DetailItem from './Pages/DetailItem';
 import CartPage from './Pages/Carrinho';
 import UserAccountPage from './Pages/Conta';
 import CadastroPage from './Pages/Cadastro';
+import Product from './Pages/Products';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<LoginPage />} />
+        <Route path='/' element={<Product />} />
         <Route path="/home" element={<HomePage />} />
         <Route path='/products/:id' element={<ListPage/>}/>
         <Route path='/detail/:id' element={<DetailItem/>}/>
