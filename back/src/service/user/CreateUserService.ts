@@ -10,12 +10,15 @@ interface UserProps {
 
 class CreateUserService {
     async execute({name, email, password}:UserProps){
+        // Método assíncrono chamado execute que cria um usuário no banco de dados.
         // recebendo os valores name, e-mail e o password
         if(!email){
             throw new Error("E-mail é um campo obrigatório")
         }
 
         const alreadyExisits = await prismaClient.user.findFirst({
+            // Verificando se já existe um usuário com o mesmo e-mail no banco de dados
+            
             where:{
                 email: email
             }
@@ -26,7 +29,7 @@ class CreateUserService {
         }
 
     const user = await prismaClient.user.create({
-        // função create grava no banco de dados o data e o select
+        // função create do Prisma grava no banco de dados o data e o select
         data:{
             name: name,
             email: email,
@@ -39,6 +42,7 @@ class CreateUserService {
         }
     })
     return user
+    // retorna o usuário criado
     }
 }
 
